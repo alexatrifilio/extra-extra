@@ -1,0 +1,48 @@
+.extras{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container{
+        max-width: (100% / 1.25);
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+.img-container{
+    width: 9.375rem;
+    height: 9.375rem;
+    object-fit: contain;
+
+    .xtra-img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.caracts{
+    list-style: none;
+}
+
+.tag {
+    align-self: center;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: small;
+    padding: 5px;
+
+    &.selected{
+        border: 1px solid rgb(1, 116, 1);
+        color: rgb(1, 116, 1);
+    }
+
+    &.evaluating{
+        border: 1px solid rgb(186, 0, 223);
+        color: rgb(186, 0, 223);
+    }
+
+    &.not-selected{
+        border: 1px solid rgb(179, 0, 0);
+        color: rgb(179, 0, 0);
+    }
+  }

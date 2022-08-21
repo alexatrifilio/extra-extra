@@ -3,7 +3,7 @@ import { Layout } from "../../Components";
 
 const Home: FC = () => {
     return(
-       <Layout>
+       <Layout page="home">
         <div className="container">
             
         </div>
