@@ -1,35 +1,21 @@
-import { FC, useState } from "react";
-import { extrasApi } from "../../../../api/extras";
-import { ExtraPayload } from "../../../../types";
+import { FC} from "react";
+import { useExtra } from "../../../../hooks/useExtra";
+
 
 const Form:FC = () => {
 
-    const [name, setName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [age, setAge] = useState(0);
-    const [img, setImg] = useState('');
-    const [project, setProject] = useState('');
-    const [selected, setSelected] = useState(false);
-    const [evaluating, setEvaluating] = useState(false);
-    const [notSelected, setNotSelected] = useState(false);
 
-    const handleSubmit = (e: {preventDefault: () => void}) => {
-        e.preventDefault();
-
-        const extra: ExtraPayload = {name, lastName, age, img, project, selected, evaluating, notSelected}
-
-        extrasApi.post(extra)
-    }
+    const { loadName,loadLastName, loadAge, loadImg, loadProject, loadNotSelected, loadEvaluating, loadSelected, submitExtra } = useExtra()
 
     return(
-        <form action="submit" onSubmit={handleSubmit}>
+        <form action="submit" onSubmit={submitExtra}>
             <div className="input-group">
                 <label htmlFor="name-extra"> Nombre </label>
                 <input 
                     type="text" 
                     name="name" 
                     id="name-extra"
-                    onChange={e => setName(e.target.value)}
+                    onChange={e => loadName(e.target.value)}
                 />
             </div>
             <div className="input-group">
@@ -38,7 +24,7 @@ const Form:FC = () => {
                     type="text" 
                     name="last-name" 
                     id="last-name-extra"
-                    onChange={e => setLastName(e.target.value)}
+                    onChange={e => loadLastName(e.target.value)}
                 />
             </div>
             <div className="input-group">
@@ -47,7 +33,7 @@ const Form:FC = () => {
                     type="number" 
                     name="age" 
                     id="age-extra"
-                    onChange={e => setAge(e.target.valueAsNumber)}
+                    onChange={e => loadAge(e.target.valueAsNumber)}
                 />
             </div>
             <div className="input-group">
@@ -56,7 +42,7 @@ const Form:FC = () => {
                     type="url" 
                     name="img" 
                     id="img-extra"
-                    onChange={e => setImg(e.target.value)}
+                    onChange={e => loadImg(e.target.value)}
                 />
             </div>
             <div className="input-group">
@@ -65,7 +51,7 @@ const Form:FC = () => {
                     type="text" 
                     name="project" 
                     id="project"
-                    onChange={e => setProject(e.target.value)}
+                    onChange={e => loadProject(e.target.value)}
                 />
             </div>
             <div className="option-container">
@@ -75,7 +61,7 @@ const Form:FC = () => {
                         type="radio" 
                         name="selection" 
                         id="selected-extra"
-                        onChange={e => setSelected(e.target.checked)}
+                        onChange={e => loadSelected(e.target.checked)}
                     />
                 </div>
                 <div className="radio-group">
@@ -84,7 +70,7 @@ const Form:FC = () => {
                         type="radio" 
                         name="selection" 
                         id="evaluating-extra"
-                        onChange={e => setEvaluating(e.target.checked)}
+                        onChange={e => loadEvaluating(e.target.checked)}
                     />
                 </div>
                 <div className="radio-group">
@@ -93,7 +79,7 @@ const Form:FC = () => {
                         type="radio" 
                         name="selection" 
                         id="rejected-extra"
-                        onChange={e => setNotSelected(e.target.checked)}
+                        onChange={e => loadNotSelected(e.target.checked)}
                     />
                 </div>
             </div>

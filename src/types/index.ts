@@ -16,8 +16,8 @@ export type Project = {
     id: string,
     name: string,
     director: string,
-    extras: number,
-    complete: boolean
+    extraAmount: number,
+    stage: string
 }
 
 export type ProjectPayload = Omit <Project, 'id'>

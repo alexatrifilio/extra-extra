@@ -1,13 +1,11 @@
 import { FC } from "react";
-import { Layout } from "../../Components";
+import { Extras } from "../Extras";
 
 const Home: FC = () => {
     return(
-       <Layout page="home">
-        <div className="container">
-            
-        </div>
-       </Layout>
+      
+            <Extras />
+       
     )
 }
 
