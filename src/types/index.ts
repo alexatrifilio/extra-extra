@@ -21,3 +21,11 @@ export type Project = {
 }
 
 export type ProjectPayload = Omit <Project, 'id'>
+
+export type User = {
+    id: string,
+    name: string;
+    email: string;
+}
+
+export type UserPayload = Omit<User, "id"> & { pass: string };

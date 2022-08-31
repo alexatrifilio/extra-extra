@@ -4,6 +4,7 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import App from './App';
 import { Extras, Home, Projects, SaveExtra } from './Pages';
 import { SaveProject } from './Pages/Projects/Save';
+import { SignUp } from './Pages/SignUp';
 
 
 const root = ReactDOM.createRoot(
@@ -15,10 +16,11 @@ root.render(
     <Routes>
       <Route path='/' element={<App />}>
         <Route index element={<Home />} />
+        <Route path='/signup' element={<SignUp/>}/>
         <Route path='/projects' element={<Projects />}>
           {/* <Route path=':id' element={<ProjectDetail />} /> */}
-          <Route path='/save' element={<SaveProject />}/>
-          <Route path='/save/:id' element={<SaveProject />}/>
+          <Route path='/projects/save' element={<SaveProject />}/>
+          <Route path='/projects/save/:id' element={<SaveProject />}/>
         </Route>
         <Route path='/extras' element={<Outlet />}>
           <Route index element={<Extras />}/>
