@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import App from './App';
 import { Extras, Home, Projects, SaveExtra } from './Pages';
+import { Login } from './Pages/Login';
 import { SaveProject } from './Pages/Projects/Save';
 import { SignUp } from './Pages/SignUp';
 
@@ -16,6 +17,7 @@ root.render(
     <Routes>
       <Route path='/' element={<App />}>
         <Route index element={<Home />} />
+        <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/projects' element={<Projects />}>
           {/* <Route path=':id' element={<ProjectDetail />} /> */}
